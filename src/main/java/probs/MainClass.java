@@ -22,17 +22,14 @@ public class MainClass {
         String [] exceptionArr = exceptionString.split("\\|");
         String exceptionType = exceptionArr[0];
         String finalMessage = getMessageWithPriority(exceptionType);
-        return new StringBuilder().append(exceptionString).append("|").append(finalMessage).toString();
+        return exceptionString + "|" + finalMessage;
     }
 
     private static String getMessageWithPriority(String exceptionType) {
-        switch(exceptionType){
-            case "IOException" :
-                return "1"+"|"+"200";
-            case "Exception" :
-                return "2"+"|"+"400";
-            default:
-                return null;
-        }
+        return switch (exceptionType) {
+            case "IOException" -> "1" + "|" + "200";
+            case "Exception" -> "2" + "|" + "400";
+            default -> null;
+        };
     }
 }

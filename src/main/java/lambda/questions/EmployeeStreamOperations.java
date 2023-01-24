@@ -44,7 +44,15 @@ public class EmployeeStreamOperations {
                 .get();
         //or
         Employee empMinSal =employees.stream()
-                .min(Comparator.comparing(Employee::getSalary)).get();
+                .min(Comparator.comparing(Employee::getSalary))
+                .get();
+
+        Double aDouble = employees.stream()
+                .min(Comparator.comparing(Employee::getSalary))
+                .map(Employee::getSalary)
+                .get();
+
+
         //or
         System.out.println(employees.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary))).get());
         System.out.println("Max-sal"+empMaxSal);
@@ -64,7 +72,8 @@ public class EmployeeStreamOperations {
 
         System.out.println("Average Salary in each dept");
         Map<String,Double> avgSalMap = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary)));
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.averagingDouble(Employee::getSalary)));
         System.out.println(avgSalMap);
 
         System.out.println("Youngest employee in Technical");

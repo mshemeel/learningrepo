@@ -1,5 +1,6 @@
 package main.java.lambda.questions;
 
+@FunctionalInterface
 public interface TestFunctionalInterface2 {
     public void test();
     public default void log(){
