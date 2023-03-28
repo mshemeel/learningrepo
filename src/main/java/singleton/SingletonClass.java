@@ -1,4 +1,4 @@
-package main.java.singletondesignpattern;
+package main.java.singleton;
 
 /*
 * Singleton Design pattern

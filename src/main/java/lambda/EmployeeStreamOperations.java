@@ -1,6 +1,6 @@
-package main.java.lambda.questions;
+package main.java.lambda;
 
-import main.java.lambda.questions.pojo.Employee;
+import main.java.lambda.pojo.Employee;
 
 import java.util.*;
 import java.util.stream.Collectors;

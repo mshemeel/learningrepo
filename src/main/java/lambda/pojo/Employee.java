@@ -1,4 +1,4 @@
-package main.java.lambda.questions.pojo;
+package main.java.lambda.pojo;
 
 import java.util.Objects;
 

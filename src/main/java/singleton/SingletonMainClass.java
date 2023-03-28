@@ -1,4 +1,4 @@
-package main.java.singletondesignpattern;
+package main.java.singleton;
 
 public class SingletonMainClass {
     public static void main(String[] args) {

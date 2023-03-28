@@ -1,4 +1,4 @@
-package main.java.lambda.questions;
+package main.java.lambda;
 
 import java.util.*;
 import java.util.stream.Collectors;

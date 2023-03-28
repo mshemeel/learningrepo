@@ -1,4 +1,4 @@
-package main.java.lambda.questions;
+package main.java.lambda;
 
 public interface TestFunctionalInterface1 {
     public void tester();

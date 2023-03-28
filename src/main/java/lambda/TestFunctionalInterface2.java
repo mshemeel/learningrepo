@@ -1,4 +1,4 @@
-package main.java.lambda.questions;
+package main.java.lambda;
 
 @FunctionalInterface
 public interface TestFunctionalInterface2 {
