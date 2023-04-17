@@ -54,7 +54,8 @@ public class EmployeeStreamOperations {
 
 
         //or
-        System.out.println(employees.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary))).get());
+        System.out.println(employees.stream()
+                .collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary))).get());
         System.out.println("Max-sal"+empMaxSal);
         System.out.println("Min-sal"+empMinSal);
 
@@ -64,6 +65,12 @@ public class EmployeeStreamOperations {
                         .groupingBy(Employee::getDepartment, Collectors
                                 .maxBy(Comparator.comparing(Employee::getSalary))));
         empMaxSalMap.entrySet().forEach(entry-> System.out.println(entry.getKey() + "---" + entry.getValue().get()));
+
+        Map<String, Optional<Employee>> maxSalInDept = employees.stream()
+                .collect(Collectors
+                        .groupingBy(Employee::getDepartment, Collectors
+                                .maxBy(Comparator
+                                        .comparing(Employee::getSalary))));
 
         System.out.println("Average Age of male and female");
         Map<String, Double> empAgeMap = employees.stream()
@@ -82,6 +89,14 @@ public class EmployeeStreamOperations {
                 .min(Comparator.comparing(Employee::getAge)).get();
         System.out.println(youngestEmpInTech);
 
+        System.out.println("Youngest male employee in each dep");
+        Map<String, Optional<Employee>> youngestEmpInEachDep =
+                employees.stream()
+                        .filter(employee -> "Male".equals(employee.getSex()))
+                        .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.minBy(Comparator.comparing(Employee::getAge))));
+
+        System.out.println(youngestEmpInEachDep);
+
         System.out.println("Split by emp age greater than 25");
         Map<Boolean, Long> agePartitionEmpMap = employees.stream().collect(Collectors.partitioningBy(employee -> employee.getAge() > 25,Collectors.counting()));
         System.out.println(agePartitionEmpMap);
@@ -95,14 +110,14 @@ public class EmployeeStreamOperations {
     //initialize
     private static List<Employee> constructEmp() {
         List<Employee> employees = new ArrayList<>();
-        employees.add(new Employee("1","Technical",true,50000.00,"Male",25));
+        employees.add(new Employee("1","Technical",true,50000.00,"Male",24));
         employees.add(new Employee("2","Technical",false,50000.00,"Female",25));
         employees.add(new Employee("3","Management",true,200000.00,"Male",27));
         employees.add(new Employee("4","Management",false,200000.00,"Female",28));
         employees.add(new Employee("5","Support",true,30000.00,"Male",30));
         employees.add(new Employee("6","Support",false,30000.00,"Female",35));
         employees.add(new Employee("7","Technical",true,50000.00,"Male",21));
-        employees.add(new Employee("7","Technical",true,50000.00,"Male",21));
+        employees.add(new Employee("7","Technical",true,50000.00,"Male",23));
         return  employees;
     }
 
