@@ -15,22 +15,18 @@ public class EmployeeStreamOperations {
         treeMap.put(new Employee("3","Technical-2",true,50000.00,"Female",25),"one");
         treeMap.put(new Employee("2","Technical-1",true,50000.00,"Female",25),"one");
 
-        treeMap.entrySet().forEach( entry -> {
-            System.out.println(entry.getKey());
-        });
+        treeMap.forEach((key, value) -> System.out.println(key));
 
         System.out.println("employees working in each department");
         Map<String, List<Employee>> empMap = employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.toList()));
-        empMap.entrySet().forEach(entry-> {
-            System.out.println(entry.getKey() + "---" + entry.getValue());
-        });
+        empMap.forEach((key, value) -> System.out.println(key + "---" + value));
 
 
         System.out.println("count of employees in each dept");
         Map<String,Long> empCountMap =  employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting()));
-        empCountMap.entrySet().forEach(entry-> System.out.println(entry.getKey() + "---" + entry.getValue()));
+        empCountMap.forEach((key, value) -> System.out.println(key + "---" + value));
 
         System.out.println("active employees in given collection");
         List<Employee> activeEmpList = employees.stream().filter(Employee::isActive).collect(Collectors.toList());
@@ -64,7 +60,7 @@ public class EmployeeStreamOperations {
                 .collect(Collectors
                         .groupingBy(Employee::getDepartment, Collectors
                                 .maxBy(Comparator.comparing(Employee::getSalary))));
-        empMaxSalMap.entrySet().forEach(entry-> System.out.println(entry.getKey() + "---" + entry.getValue().get()));
+        empMaxSalMap.forEach((key, value) -> System.out.println(key + "---" + value.get()));
 
         Map<String, Optional<Employee>> maxSalInDept = employees.stream()
                 .collect(Collectors
