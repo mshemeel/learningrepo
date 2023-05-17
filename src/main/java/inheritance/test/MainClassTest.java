@@ -18,6 +18,9 @@ public class MainClassTest {
         animal.printFinal();
         dog.printFinal();
 
+        System.out.println("*************************");
+        Animal animal3 = new Dog();
+    
 
     }
 }

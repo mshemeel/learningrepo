@@ -1,6 +1,9 @@
 package main.java.inheritance.test;
 
 public class Animal {
+    public Animal(){
+        System.out.println("Animal Constructor");
+    }
     // public method
     public void print() {
         System.out.println("Animal");

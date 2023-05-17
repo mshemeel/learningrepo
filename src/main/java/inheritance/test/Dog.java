@@ -1,6 +1,10 @@
 package main.java.inheritance.test;
 
 public class Dog extends Animal{
+    public Dog(){
+        //super();
+        System.out.println("Dog constructor");
+    }
     public void print() {
         System.out.println("Dog");
     }
@@ -14,8 +18,9 @@ public class Dog extends Animal{
         System.out.println("Print Static Dog");
     }
 
+    //Cannot override private methods
     private void printPrivate(){
-        System.out.println("print private animal");
+        System.out.println("print private dog");
     }
 
    /*
