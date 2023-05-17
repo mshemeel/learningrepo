@@ -1,8 +1,14 @@
-# learningrepo
+# More Notes
 
-Sample problems for my personal learning
+# ACID 
 
-# Notes
+1. Atomicity
+2. Consistancy
+3. Isolation
+4. Durability
+
+Source : geeksforgeeks
+image.png
 
 # @Transactional annotation
 
@@ -21,3 +27,4 @@ Sample problems for my personal learning
     3. a Timeout for the operation wrapped by the transaction
     4. a readOnly flag – a hint for the persistence provider that the transaction should be read only
     5. the Rollback rules for the transaction
+
