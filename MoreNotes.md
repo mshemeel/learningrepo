@@ -9,7 +9,8 @@
 
 Source : geeksforgeeks
 
-![image](https://github.com/mshemeel/learningrepo/assets/26067779/33720d4a-18c0-4883-9f03-c3f47b174277)
+
+<img src="https://github.com/mshemeel/learningrepo/assets/26067779/33720d4a-18c0-4883-9f03-c3f47b174277" width="600" height="500">
 
 
 # @Transactional annotation
