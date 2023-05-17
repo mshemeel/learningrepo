@@ -19,11 +19,10 @@ public class TwoSum {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int rem = target - nums[i];
-            if (!map.containsKey(rem)) {
-                map.put(nums[i], i);
-            } else {
+            if (map.containsKey(rem)) {
                 System.out.println("Pair->[" + map.get(rem) + "," + i + "]");
             }
+            map.put(nums[i], i);
         }
     }
 }
