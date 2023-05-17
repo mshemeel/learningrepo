@@ -1,4 +1,4 @@
-package main.java.learn;
+package main.java.probs;
 
 /**
  * Input: strs = ["flower","flow","flight"]

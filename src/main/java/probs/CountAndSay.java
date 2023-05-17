@@ -1,4 +1,4 @@
-package main.java.learn;
+package main.java.probs;
 
 /**
  * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:

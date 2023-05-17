@@ -1,4 +1,4 @@
-package main.java.learn;
+package main.java.probs;
 
 import java.util.HashMap;
 import java.util.Map;

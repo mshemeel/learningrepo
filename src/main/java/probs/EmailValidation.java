@@ -1,4 +1,4 @@
-package main.java.learn;
+package main.java.probs;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

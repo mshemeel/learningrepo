@@ -1,4 +1,4 @@
-package main.java.learn;
+package main.java.probs;
 
 public class strstr {
     public int strStr(String haystack, String needle) {
