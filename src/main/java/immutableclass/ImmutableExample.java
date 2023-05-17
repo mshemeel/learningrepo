@@ -11,21 +11,24 @@ public final class ImmutableExample {
     private final String member2;
     private final Map<String, String> metadata; // mutable field
 
+    private final MutableClass mutableField;
+
     //constructor should initialize attributes
-    public ImmutableExample(String mem1 , String mem2,Map<String, String> metadata){
+    public ImmutableExample(String mem1, String mem2, Map<String, String> metadata, MutableClass mutableField) {
         System.out.println("Performing Deep Copy for Object initialization");
         this.member1 = mem1;
         this.member2 = mem2;
         // Iterating using for-each loop
         this.metadata = new HashMap<>(metadata); //deep copy
+        this.mutableField = new MutableClass(mutableField);
     }
 
     //getter method should return deep copy ->original object reference should not be returned
-    public String getMember1(){
+    public String getMember1() {
         return member1;
     }
 
-    public String getMember2(){
+    public String getMember2() {
         return member2;
     }
 
@@ -42,6 +45,7 @@ public final class ImmutableExample {
                 "member1='" + member1 + '\'' +
                 ", member2='" + member2 + '\'' +
                 ", metadata=" + metadata +
+                ", mutableField=" + mutableField +
                 '}';
     }
 }
