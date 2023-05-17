@@ -3,9 +3,8 @@ package main.java.singleton;
 public class SingletonMainClass {
     public static void main(String[] args) {
         SingletonClass obj1 = SingletonClass.getInstance();
-        obj1.printMessage();
-
         SingletonClass obj2 = SingletonClass.getInstance();
-        obj2.printMessage();
+        System.out.println("Hashcode of Object 1 - " + obj1.hashCode());
+        System.out.println("Hashcode of Object 2 - " + obj2.hashCode());
     }
 }
