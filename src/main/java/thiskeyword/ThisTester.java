@@ -18,6 +18,14 @@ public class ThisTester {
         System.out.println("Default constructor is called");
     }
 
+     //default constructor
+     public ThisTester(int number){
+        this();
+        System.out.println("Number constructor is called");
+        this.number = number;
+    }
+
+
     public static void main(String[] args) {
         // cannot use this inside static main 
         int number = 15;

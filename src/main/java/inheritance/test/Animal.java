@@ -4,6 +4,12 @@ public class Animal {
     public Animal(){
         System.out.println("Animal Constructor");
     }
+
+    //Parameterized constructor
+    public Animal(String str){
+        System.out.println("Animal Parameterized Constructor");
+    }
+
     // public method
     public void print() {
         System.out.println("Animal");

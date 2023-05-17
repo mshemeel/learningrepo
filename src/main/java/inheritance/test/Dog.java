@@ -2,10 +2,12 @@ package main.java.inheritance.test;
 
 public class Dog extends Animal{
     public Dog(){
-        //super();
+        super("Hello");
         System.out.println("Dog constructor");
     }
+
     public void print() {
+        super.print(); // calls the parent class
         System.out.println("Dog");
     }
 

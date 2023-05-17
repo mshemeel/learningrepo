@@ -20,6 +20,7 @@ public class MainClassTest {
 
         System.out.println("*************************");
         Animal animal3 = new Dog();
+        animal3.print();
     
 
     }
