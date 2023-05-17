@@ -9,6 +9,8 @@ public class AnotherClass {
         OuterClass oc = new OuterClass();
         OuterClass.PublicInnerClass pubIC = oc.new PublicInnerClass();
         System.out.println("pubIC ->"+ pubIC.getNum());
+        System.out.println(pubIC.getOuterClassPublicMember());
+        System.out.println(pubIC.getOuterClassPrivateMember());
 
         // no compilation error -> works fine
         OuterClass.PublicStaticClass psc = new OuterClass.PublicStaticClass();

@@ -2,6 +2,10 @@ package main.java.innerclasses;
 
 public class OuterClass {
 
+    private String outerClassPrivateMember = "OuterClassPrivateMember";
+    public String outerClassPublicMember = "OuterClassPublicMember";
+
+
     public static void main(String[] args) {
         OuterClass oc = new OuterClass();
         OuterClass.PrivateClass pricIC = oc.new PrivateClass();
@@ -14,6 +18,13 @@ public class OuterClass {
 
         public int getNum() {
             return num;
+        }
+
+        public String getOuterClassPrivateMember(){
+            return outerClassPrivateMember;
+        }
+        public String getOuterClassPublicMember(){
+            return outerClassPublicMember;
         }
     }
 
@@ -33,6 +44,7 @@ public class OuterClass {
         public int getNum() {
             return num;
         }
+
     }
 
     public int getPrivateClassNum(){
