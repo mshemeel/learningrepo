@@ -13,7 +13,8 @@ public class MousePointer {
                 // Move the cursor
                 Robot robot = new Robot();
                 robot.mouseMove(xCoord, yCoord);
-                robot.delay(60000);
+                System.out.println("Moved mouse");
+                robot.delay(500);
             } catch (AWTException e) {
             }
         }
