@@ -8,7 +8,9 @@
 4. Durability
 
 Source : geeksforgeeks
-image.png
+
+![image](https://github.com/mshemeel/learningrepo/assets/26067779/33720d4a-18c0-4883-9f03-c3f47b174277)
+
 
 # @Transactional annotation
 
