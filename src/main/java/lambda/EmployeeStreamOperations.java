@@ -19,7 +19,7 @@ public class EmployeeStreamOperations {
 
         System.out.println("employees working in each department");
         Map<String, List<Employee>> empMap = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.toList()));
+                .collect(Collectors.groupingBy(Employee::getDepartment));
         empMap.forEach((key, value) -> System.out.println(key + "---" + value));
 
 
@@ -29,7 +29,9 @@ public class EmployeeStreamOperations {
         empCountMap.forEach((key, value) -> System.out.println(key + "---" + value));
 
         System.out.println("active employees in given collection");
-        List<Employee> activeEmpList = employees.stream().filter(Employee::isActive).collect(Collectors.toList());
+        List<Employee> activeEmpList = employees.stream()
+                .filter(Employee::isActive)
+                .collect(Collectors.toList());
         activeEmpList.forEach(System.out::println);
 
 
@@ -38,6 +40,16 @@ public class EmployeeStreamOperations {
                 .sorted(Comparator.comparing(Employee::getSalary,Comparator.reverseOrder()))
                 .findFirst()
                 .get();
+
+
+        Optional<Employee> maxSalaryEmployee = employees.stream()
+                .max(Comparator.comparing(Employee::getSalary));
+
+        maxSalaryEmployee.ifPresent(employee -> {
+            System.out.println("Employee ->"+ employee);
+            System.out.println("Max Salary ->"+ employee.getSalary());
+        });
+
         //or
         Employee empMinSal =employees.stream()
                 .min(Comparator.comparing(Employee::getSalary))
@@ -51,7 +63,9 @@ public class EmployeeStreamOperations {
 
         //or
         System.out.println(employees.stream()
-                .collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary))).get());
+                .collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary)))
+                .get());
+
         System.out.println("Max-sal"+empMaxSal);
         System.out.println("Min-sal"+empMinSal);
 
@@ -62,15 +76,14 @@ public class EmployeeStreamOperations {
                                 .maxBy(Comparator.comparing(Employee::getSalary))));
         empMaxSalMap.forEach((key, value) -> System.out.println(key + "---" + value.get()));
 
-        Map<String, Optional<Employee>> maxSalInDept = employees.stream()
-                .collect(Collectors
-                        .groupingBy(Employee::getDepartment, Collectors
-                                .maxBy(Comparator
-                                        .comparing(Employee::getSalary))));
+        System.out.println("Average Age of employees");
+        OptionalDouble averageAge = employees.stream().mapToInt(Employee::getAge).average();
+        averageAge.ifPresent(System.out::println);
 
         System.out.println("Average Age of male and female");
         Map<String, Double> empAgeMap = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getSex,Collectors.averagingInt(Employee::getAge)));
+                .collect(Collectors
+                        .groupingBy(Employee::getSex,Collectors.averagingInt(Employee::getAge)));
         System.out.println(empAgeMap);
 
         System.out.println("Average Salary in each dept");
@@ -89,12 +102,15 @@ public class EmployeeStreamOperations {
         Map<String, Optional<Employee>> youngestEmpInEachDep =
                 employees.stream()
                         .filter(employee -> "Male".equals(employee.getSex()))
-                        .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.minBy(Comparator.comparing(Employee::getAge))));
+                        .collect(Collectors
+                                .groupingBy(Employee::getDepartment,
+                                        Collectors.minBy(Comparator.comparing(Employee::getAge))));
 
         System.out.println(youngestEmpInEachDep);
 
         System.out.println("Split by emp age greater than 25");
-        Map<Boolean, Long> agePartitionEmpMap = employees.stream().collect(Collectors.partitioningBy(employee -> employee.getAge() > 25,Collectors.counting()));
+        Map<Boolean, Long> agePartitionEmpMap = employees.stream()
+                .collect(Collectors.partitioningBy(employee -> employee.getAge() > 25,Collectors.counting()));
         System.out.println(agePartitionEmpMap);
 
         System.out.println("Frequency");

@@ -10,16 +10,12 @@ import static java.util.Comparator.reverseOrder;
 public class MainClass {
     public static void main(String[] args) {
 
-        SampleFunctionalInterface fi = () -> {
-            return "Hello";
-        };
-
+        // Functional Interface without arguments
+        SampleFunctionalInterface fi = () -> "Hello";
         System.out.println(fi.hello());
 
-        List<Student> studentList = new ArrayList<>();
-
-        List<Student> collect = studentList.stream()
-                .sorted(comparing(Student::getAge,reverseOrder()))
-                .collect(Collectors.toList());
+        //Functional Interface with arguments
+        MyFunctionalInterface myFI = x ->  "Hello "+x;
+        System.out.println(myFI.printName("Shemeel"));
     }
 }
