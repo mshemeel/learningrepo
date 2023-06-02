@@ -1,16 +1,9 @@
 package main.java.functionalinterface;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
-
-import static java.util.Comparator.comparing;
-import static java.util.Comparator.reverseOrder;
 
 public class MainClass {
     public static void main(String[] args) {
