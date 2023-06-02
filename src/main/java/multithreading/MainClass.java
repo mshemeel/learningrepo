@@ -32,7 +32,7 @@ public class MainClass {
         // Should not do this even though no compilation issue
         threadClassChild.run();
 
-        // this will throw IllegalThreadState exception
+        // this will throw IllegalThreadState exception since start() is already called
         //threadClassChild.start();
 
         //Implementing Runnable interface
