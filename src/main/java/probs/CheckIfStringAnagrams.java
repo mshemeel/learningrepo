@@ -12,7 +12,7 @@ public class CheckIfStringAnagrams {
         boolean isAnagram = checkAnagram(s1, s2, s3);
         System.out.println("IsAnagram ->" + isAnagram);
 
-        System.out.println(checkAnagramUsingSet(s1, s2));
+        System.out.println(checkAnagramUsingSet(s1, s2, s3));
 
     }
 
@@ -35,7 +35,7 @@ public class CheckIfStringAnagrams {
         return isAnagram;
     }
 
-    private static boolean checkAnagramUsingSet(String s1, String s2,String s3) {
+    private static boolean checkAnagramUsingSet(String s1, String s2, String s3) {
         boolean isAnagram = false;
         if (s1.length() == s2.length() && s1.length() == s3.length()) {
             Set<Character> set1 = s1.toLowerCase().chars()
